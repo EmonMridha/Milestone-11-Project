@@ -1,12 +1,20 @@
-import React, { use } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext/AuthContext';
 import registerLottie from '../../assets/lotties/register.json';
 import Lottie from 'lottie-react';
+import SocialLogin from '../Shared/SocialLogin';
+import { useLocation, useNavigate } from 'react-router';
 
 
 const SignIn = () => {
 
-    const { signInUser } = use(AuthContext); // Destructure createUser which is an object coming from AuthContext
+    const { signInUser } = useContext(AuthContext); // Destructure createUser which is an object coming from AuthContext
+
+    const location = useLocation(); // Get the route the user is trying to visit
+
+    const navigate = useNavigate();
+
+    const from = location.state || '/'; // making sure if the user is redirected form any route
 
     const handleSignIn = event => {
         event.preventDefault();
@@ -15,12 +23,12 @@ const SignIn = () => {
         const password = form.password.value;
 
         signInUser(email, password)
-        .then(result => {
-            console.log(result.user);
-        })
-        .catch(error=>{
-            console.log(error);
-        })
+            .then(result => {
+                navigate(from) // Sending the user to the place from where he came here
+            })
+            .catch(error => {
+                console.log(error);
+            })
 
     }
 
@@ -43,6 +51,7 @@ const SignIn = () => {
                                 <button className="btn btn-neutral mt-4">Login</button>
                             </fieldset>
                         </form>
+                        <SocialLogin from={from}></SocialLogin>
                     </div>
                 </div>
             </div>

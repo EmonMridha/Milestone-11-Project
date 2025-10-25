@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { Suspense, use } from 'react';
+import Banner from './Banner';
+import HotJobs from './HotJobs';
+import { useLoaderData } from 'react-router';
 
 const Homel = () => {
+
+    const jobs = useLoaderData()
+
     return (
         <div>
-            <h1>This is home</h1>
+            <Banner></Banner>
+            <Suspense fallback={'Loading hot Jobs '}>
+                <HotJobs jobs={jobs}></HotJobs>
+            </Suspense>
         </div>
     );
 };
