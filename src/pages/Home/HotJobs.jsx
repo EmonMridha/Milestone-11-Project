@@ -1,4 +1,3 @@
-import React, { use } from 'react';
 import JobCard from '../Shared/JobCard';
 
 const HotJobs = ({ jobs }) => {
