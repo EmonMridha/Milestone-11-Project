@@ -6,17 +6,17 @@ import { myApplicationsPromises } from '../../api/applicationsApi';
 
 
 
- 
+
 const MyApplications = () => {
 
-    const { user } = UseAuth() 
+    const { user } = UseAuth()
 
     return (
         <div>
             <ApplicationStats></ApplicationStats>
-            <Suspense fallback={'loading your applications'}>
-                <ApplicationList myApplicationsPromises={myApplicationsPromises(user.email)}></ApplicationList>
-            </Suspense>
+
+            <ApplicationList myApplicationsPromises={myApplicationsPromises(user.email)}></ApplicationList>
+
         </div>
     );
 };

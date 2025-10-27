@@ -19,9 +19,20 @@ const Navbar = () => {
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
 
+        {/* only for applicants */}
+
         {
             user && <>
                 <li><NavLink to='/myApplications'>My Applications</NavLink></li>
+            </>
+        }
+
+        {/* only for recruiter */}
+
+        {
+            user && <>
+                <li><NavLink to='/addJob'>Add Job</NavLink></li>
+                <li><NavLink to='/myPostedJobs'>My Posted Jobs</NavLink></li>
             </>
         }
     </>

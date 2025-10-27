@@ -2,8 +2,7 @@ import { use } from "react";
 import JobApplicationRow from "./JobApplicationRow";
 
 const ApplicationList = ({ myApplicationsPromises }) => {
-    const Applications = use(myApplicationsPromises)
-    console.log(Applications);
+    const Applications = use(myApplicationsPromises) // Array of applied jobs
     return (
         <div>
             <h3 className="text-3xl">jobs applied : {Applications.length}</h3>
