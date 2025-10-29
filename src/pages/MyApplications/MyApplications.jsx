@@ -1,4 +1,3 @@
-import React, { Suspense } from 'react';
 import ApplicationStats from './ApplicationStats';
 import ApplicationList from './ApplicationList';
 import UseAuth from '../../hooks/UseAuth';
